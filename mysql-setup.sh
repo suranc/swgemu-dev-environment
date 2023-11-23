@@ -6,6 +6,9 @@ export DBUSER=swgemu
 export DBNAME=swgemu
 export DBPASS=123456
 
+
+mysql < /work/Core3/MMOCoreORB/sql/swgemu.sql
+
 mysql -v <<-EOF
         SET @@SESSION.SQL_LOG_BIN=0;
         DELETE FROM mysql.user WHERE user NOT IN ('mysql.sys', 'mariadb.sys', 'mysqlxsys', 'root') OR host NOT IN ('localhost') ;
@@ -18,7 +21,5 @@ mysql -v <<-EOF
         DROP DATABASE IF EXISTS test;
         FLUSH PRIVILEGES;
 EOF
-
-mysql < /work/Core3/MMOCoreORB/sql/swgemu.sql
 
 exit 0
