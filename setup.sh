@@ -36,6 +36,6 @@ then
 fi
 
 echo "Done!"
-echo; echo
+echo
 echo "Run ./engine3-build.sh to build engine."
 echo "Run ./build.sh Core3"
