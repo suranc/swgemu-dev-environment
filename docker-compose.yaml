@@ -1,16 +1,13 @@
 version: "1.0"  # optional since v1.27.0
 services:
   swgemu:
-    ####build: .
+    build: .
     ports:
       - "44455:44455"
       - "44419:44419"
       - "44462:44462/udp"
       - "44463:44463/udp"
       - "44453:44453/udp"
-      #- "44462:44462"
-      #- "44419:44419"
-      #- "8125:8125"
     expose:
       - "44455"
       - "44419"
@@ -26,15 +23,10 @@ services:
       - ./SWGEmu-tre-files/:/home/swgemu/Desktop/SWGEmu
       - .:/work
     command: /work/Core3/MMOCoreORB/bin/core3
-    image: swgbase
     working_dir: /work/Core3/MMOCoreORB/bin/
   mysql:
     ports:
       - "3306:3306"
     volumes:
       - ./mysql:/var/lib/mysql/
-      #- logvolume01:/var/log
     image: mysql
-#volumes:
-#  logvolume01: {}
-
