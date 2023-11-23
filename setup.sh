@@ -30,6 +30,6 @@ echo "Setting up MySQL Database"
 mysql_container=$(docker run -d --rm -e MYSQL_ALLOW_EMPTY_PASSWORD=true -v $PWD/mysql:/var/lib/mysql -v $PWD:/work mysql)
 sleep 30
 docker exec -it $mysql_container sh -c "/work/mysql-setup.sh"
-docker stop $mysql_container
+docker stop $mysql_container > /dev/null
 
 echo "Run ./engine3-build.sh and ./build.sh"
