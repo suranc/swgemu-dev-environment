@@ -13,15 +13,18 @@ popd > /dev/null
 
 mkdir -p SWGEmu-tre-files
 
-echo "Copy TRE files to the $(readlink -f $PWD)/SWGEmu-tre-files/ directory."
-echo "Press [ENTER] when complete."
-read tre
-while [ $(ls SWGEmu-tre-files/*.tre|wc -l) -lt 54 ]
-do
-    echo "ERROR: Minimum of 54 .tre files not found in (readlink -f $PWD)/SWGEmu-tre-files/"
+if [ $(ls SWGEmu-tre-files/*.tre|wc -l) -lt 54 ]
+then
+    echo "Copy TRE files to the $(readlink -f $PWD)/SWGEmu-tre-files/ directory."
     echo "Press [ENTER] when complete."
     read tre
-done
+    while [ $(ls SWGEmu-tre-files/*.tre|wc -l) -lt 54 ]
+    do
+        echo "ERROR: Minimum of 54 .tre files not found in (readlink -f $PWD)/SWGEmu-tre-files/"
+        echo "Press [ENTER] when complete."
+        read tre
+    done
+fi
 
 echo "Setting up MySQL Database"
 mysql_container=$(docker run -d --rm -e MYSQL_ALLOW_EMPTY_PASSWORD=true -v $PWD/mysql:/var/lib/mysql -v $PWD:/work mysql)
