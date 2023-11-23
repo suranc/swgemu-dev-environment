@@ -2,9 +2,6 @@
 
 pushd $(dirname $0) > /dev/null
 
-mkdir -p mysql
-chmod 777 mysql
-
 git submodule update --init --recursive
 
 pushd Core3 > /dev/null
@@ -28,7 +25,10 @@ fi
 
 if [ ! -d mysql/swgemu ]
 then
-echo "Setting up MySQL Database"
+    mkdir -p mysql
+    chmod 777 mysql 2>/dev/null
+
+    echo "Setting up MySQL Database"
     mysql_container=$(docker run -d --rm -e MYSQL_ALLOW_EMPTY_PASSWORD=true -v $PWD/mysql:/var/lib/mysql -v $PWD:/work mysql)
     sleep 30
     docker exec -it $mysql_container sh -c "/work/mysql-setup.sh"
@@ -36,4 +36,6 @@ echo "Setting up MySQL Database"
 fi
 
 echo "Done!"
-echo "Run ./engine3-build.sh to build engine and run ./build.sh Core3"
+echo; echo
+echo "Run ./engine3-build.sh to build engine."
+echo "Run ./build.sh Core3"
