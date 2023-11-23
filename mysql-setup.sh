@@ -7,7 +7,7 @@ export DBPASS=123456
 
 mysql < /work/Core3/MMOCoreORB/sql/swgemu.sql
 
-mysql -v <<-EOF
+mysql <<-EOF
         SET @@SESSION.SQL_LOG_BIN=0;
         GRANT ALL ON *.* TO 'root'@'localhost' WITH GRANT OPTION;
         GRANT ALL ON *.* TO 'root'@'%' WITH GRANT OPTION;
