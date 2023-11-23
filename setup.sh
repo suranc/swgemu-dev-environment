@@ -1,15 +1,15 @@
 #!/bin/bash
 
-pushd $(dirname $0)
+pushd $(dirname $0) > /dev/null
 
 mkdir -p mysql
 chmod 777 mysql
 
 git submodule update --init --recursive
 
-pushd Core3
+pushd Core3 > /dev/null
 ln -sf ../engine3/MMOEngine
-popd
+popd > /dev/null
 
 mkdir -p SWGEmu-tre-files
 
@@ -23,4 +23,4 @@ do
     read tre
 done
     
-echo "un ./engine3-build.sh and ./build.sh"
+echo "Run ./engine3-build.sh and ./build.sh"
