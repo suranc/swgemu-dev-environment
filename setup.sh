@@ -10,6 +10,7 @@ popd > /dev/null
 
 mkdir -p SWGEmu-tre-files
 
+# Ensure TRE files are in place
 if [ $(ls SWGEmu-tre-files/*.tre|wc -l) -lt 54 ]
 then
     echo "Copy TRE files to the $(readlink -f $PWD)/SWGEmu-tre-files/ directory."
@@ -23,6 +24,7 @@ then
     done
 fi
 
+# Setup database if it does not exist.
 if [ ! -d mysql/swgemu ]
 then
     mkdir -p mysql
@@ -33,6 +35,12 @@ then
     sleep 30
     docker exec -it $mysql_container sh -c "/work/mysql-setup.sh"
     docker stop $mysql_container > /dev/null
+fi
+
+# Create config-local.lua with correct database name if it does not already exist
+if [ ! -f Core3/MMOCoreORB/bin/conf/config-local.lua ]
+then
+    cat Core3/MMOCoreORB/bin/conf/config.lua | sed 's/DBHost = "127.0.0.1"/DBHost = "mysql"/g' > Core3/MMOCoreORB/bin/conf/config-local.lua
 fi
 
 echo "Done!"
