@@ -23,6 +23,6 @@ do
     read tre
 done
 
-docker run -it --rm -v $PWD/mysql:/var/lib/mysql -v $PWD:/work sh -c "/work/mysql-setup.sh"
+docker run -it --rm -v $PWD/mysql:/var/lib/mysql -v $PWD:/work mysql sh -c "/work/mysql-setup.sh"
     
 echo "Run ./engine3-build.sh and ./build.sh"
