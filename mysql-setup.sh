@@ -1,7 +1,5 @@
 #!/bin/sh
 
-mysqld &
-
 export DBUSER=swgemu
 export DBNAME=swgemu
 export DBPASS=123456
