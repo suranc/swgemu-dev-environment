@@ -12,4 +12,4 @@ cd Core3
 ln -sf ../engine3/MMOEngine
 
 mkdir SWGEmu-tre-files
-echo "Copy TRE files to the $(readlink -f $PWD)/SWGEmu-tre-files/ directory"
+echo "Copy TRE files to the $(readlink -f $PWD)/SWGEmu-tre-files/ directory.  Then run ./engine3-build.sh and ./build.sh"

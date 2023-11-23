@@ -1,7 +1,7 @@
 version: "1.0"  # optional since v1.27.0
 services:
   swgemu:
-    build: .
+    image: ${IMAGE_NAME}
     ports:
       - "44455:44455"
       - "44419:44419"
