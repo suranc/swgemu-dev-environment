@@ -1,0 +1,6 @@
+[submodule "Core3"]
+	path = Core3
+	url = https://github.com/swgemu/Core3.git
+[submodule "engine3"]
+	path = engine3
+	url = https://github.com/swgemu/engine3.git
