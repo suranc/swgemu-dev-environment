@@ -19,6 +19,6 @@ mysql -v <<-EOF
         FLUSH PRIVILEGES;
 EOF
 
-mysql /work/Core3/MMOCoreORB/sql/swgemu.sql
+mysql < /work/Core3/MMOCoreORB/sql/swgemu.sql
 
 exit 0
