@@ -9,7 +9,7 @@ export DBPASS=123456
 mysql -v <<-EOF
         SET @@SESSION.SQL_LOG_BIN=0;
         DELETE FROM mysql.user WHERE user NOT IN ('mysql.sys', 'mariadb.sys', 'mysqlxsys', 'root') OR host NOT IN ('localhost') ;
-        SET PASSWORD FOR 'root'@'localhost' = PASSWORD('${DBPASS}');
+        SET PASSWORD FOR 'root'@'localhost' = '${DBPASS}';
         GRANT ALL ON *.* TO 'root'@'localhost' WITH GRANT OPTION;
         CREATE USER 'root'@'%' IDENTIFIED BY '${DBPASS}';
         GRANT ALL ON *.* TO 'root'@'%' WITH GRANT OPTION;
