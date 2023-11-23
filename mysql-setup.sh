@@ -1,5 +1,7 @@
 #!/bin/sh
 
+mysqld &
+
 export DBUSER=swgemu
 export DBNAME=swgemu
 export DBPASS=123456
@@ -18,3 +20,5 @@ mysql -v <<-EOF
 EOF
 
 mysql /work/Core3/MMOCoreORB/sql/swgemu.sql
+
+exit 0
