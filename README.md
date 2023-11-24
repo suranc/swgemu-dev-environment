@@ -20,6 +20,12 @@ To build the `engine3` code, run `./engine3-build.sh`, but only needs to be done
 
 To build `Core3`, run `./build.sh`.  Only changes in the `Core3` directory will be built after the first compile.  So subsequent runs to incorporate your changes are fast.
 
+You can also run `./refresh.sh` to compile and restart in one shot.
+
 # Run
 
-To run your latest build, run `./run.sh`
+To run your latest build, run `./start.sh`
+
+# Stop
+
+To stop the running instance, run `./stop.sh`
