@@ -14,13 +14,11 @@ To setup: `./setup.sh`
 
 # Build
 
-Clones of the upstream `Core3` and `engine3` repos are tracked as submodules, and cloned as part of setup.  Development can be done against these locally.
+The upstream `Core3` repo is cloned and tracked as a submodule.  Development can be done locally against this clone, or you can symlink your `Core3` working directory into this location.
 
-To build the `engine3` code, run `./engine3-build.sh`, but only needs to be done when incorporating upstream changes.
+Run `./build.sh` to build Core3.  Only changes in the `Core3` directory will be built after the first compile.  So subsequent runs to incorporate your changes are fast.
 
-To build `Core3`, run `./build.sh`.  Only changes in the `Core3` directory will be built after the first compile.  So subsequent runs to incorporate your changes are fast.
-
-You can also run `./refresh.sh` to compile and restart in one shot.
+You can also run `./refresh.sh` to compile your latest changes and restart a running SWGEmu server in one shot.
 
 # Run
 
