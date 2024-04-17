@@ -7,6 +7,7 @@ A local development and runtime environment setup for the SWGEmu project.  Build
 Setup only needs to be run once.
 
 Requirements:
+* linux
 * docker
 * docker-compose
 
